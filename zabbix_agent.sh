@@ -1,5 +1,9 @@
 #!/bin/bash
 
+yum -y install git
+#下载包
+git clone https://github.com/jiedahui/zabbix-agent-install.git
+
 agent_rpm='zabbix-agent-4.4.0-1.el7.x86_64.rpm'
 sender_rpm='zabbix-sender-4.4.0-1.el7.x86_64.rpm'
 
