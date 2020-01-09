@@ -1,8 +1,7 @@
 #!/bin/bash
 
-yum -y install git
-#下载包
-git clone https://github.com/jiedahui/zabbix-agent-install.git
+yum -y install wget
+
 
 agent_rpm='zabbix-agent-4.4.0-1.el7.x86_64.rpm'
 sender_rpm='zabbix-sender-4.4.0-1.el7.x86_64.rpm'
@@ -11,14 +10,12 @@ qjpath=`pwd`
 
 if [ ! -e $agent_rpm ]
 then
-	echo 'zabbix-agent安装包不存在'
-	exit
+	wget https://repo.zabbix.com/zabbix/4.4/rhel/7/x86_64/zabbix-agent-4.4.0-1.el7.x86_64.rpm
 fi
 
 if [ ! -e $sender_rpm ]
 then
-	echo 'zabbix-sender安装包不存在'
-	exit
+	wget https://repo.zabbix.com/zabbix/4.4/rhel/7/x86_64/zabbix-sender-4.4.0-1.el7.x86_64.rpm
 fi
 
 systemctl stop firewalld
